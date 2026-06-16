@@ -1,14 +1,31 @@
 // 그림 데이터들을 모아놓은 상자입니다.
-const paintings = [
-    { id: 1, title: "흐르는 수양꽃", price: "50,000원", img: "20220000150150liudongdeshuiyanghua.JPG", link: "내링크1" },
-    { id: 2, title: "자귀나무꽃 合欢花", price: "60,000원", img: "./20250000100100hehuanhua.jpg", link: "내링크2" },
-    { id: 3, title: "경계 없는 꽃", price: "55,000원", img: "./20250000130162huawujie.jpg", link: "내링크3" }
-    // 앞으로 50장, 100장이 되면 여기에 똑같은 형식으로 줄만 추가하면 됩니다!
-];
 
-// 이제 파일 이름 목록만 쭉 적어두면 자바스크립트가 알아서 요리합니다.
-const fileNames = [
-    "20220000150150liudongdeshuiyanghua.jpg",
-    "20250000100100hehuanhua.jpg",    
-    "20250000130162huawujie.jpg" 
+
+// 파일 이름(영어)은 서버용 주소로 쓰고, 화면에는 실제 다국어 이름을 보여줄 창고입니다.
+const paintings = [
+     {
+        fileName: "20220000150150liudongdeshuiyanghua.jpg",
+        titleKo: "흐르는 수양꽃",
+        titleZh: "流动的水杨花",
+        titleEn: "Flowing Willow Blossoms"
+    },
+    {
+        fileName: "20250000150150hehuanhua.jpg",
+        titleKo: "재회 속에 피어난 꽃",       // 한국어 표시용
+        titleZh: "合欢花",  // 중국어 표시용
+        titleEn: "Blossoms in the Reunion" // 영어 표시용
+    },
+    {
+        fileName: "20250000130162huawujie.jpg",
+        titleKo: "경계 없는 꽃",
+        titleZh: "花无界",
+        titleEn: "Flowers Without Boundaries"
+    },
+    {
+        fileName: "",
+        titleKo: "",
+        titleZh: "",
+        titleEn: ""
+    }
+    // 오십장, 백장이 되어도 이 양식으로 아래로 줄만 늘려주면 됩니다!
 ];
