@@ -20,7 +20,9 @@ const paintings = [
         titleKo: "경계 없는 꽃",
         titleZh: "花无界",
         titleEn: "Flowers Without Boundaries"
-    },
+    }
+    /*
+    ,
     {
         fileName: "",
         titleKo: "",
@@ -28,4 +30,5 @@ const paintings = [
         titleEn: ""
     }
     // 오십장, 백장이 되어도 이 양식으로 아래로 줄만 늘려주면 됩니다!
+    */
 ];

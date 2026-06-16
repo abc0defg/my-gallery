@@ -8,7 +8,7 @@ const dictionary = {
     zh: {
         year: "创作年份",
         size: "作品尺寸",
-        btn: "咨询购买"
+        btn: "咨询"
     },
     en: {
         year: "Created Year",
