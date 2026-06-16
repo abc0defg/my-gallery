@@ -14,3 +14,28 @@ body {
    button:hover {
        background-color: #555; /* 마우스를 올리면 살짝 밝아짐 */
    }
+
+
+/* 각 그림 상자 안에서 이미지가 거대해지지 않도록 제한합니다 */
+.gallery-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* [핵심] 상자 안의 내용물들을 가운데로 정렬하여 비율이 달라도 예쁘게 보이게 합니다 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 그림 이미지 자체의 크기 설정 */
+.gallery-item img {
+    /* 너비와 높이를 100%로 고정하는 대신, 자바스크립트가 지정해 줄 실제 비례 크기를 따르도록 만듭니다 */
+    max-width: 100%;  /* 상자 너비를 넘지 않도록 제한 */
+    max-height: 250px; /* 높이의 최대 한계선을 주어 너무 길어지지 않게 방지 */
+    object-fit: contain; /* [핵심] 이미지가 찌그러지거나 잘리지 않고 원래 비율을 유지합니다 */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
