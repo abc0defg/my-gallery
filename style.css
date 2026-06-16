@@ -1,41 +1,56 @@
-body {
-       background-color: #f5f5f5; /* 연한 회색 배경 */
-       font-family: 'Malgun Gothic', sans-serif;
-       text-align: center; /* 가운데 정렬 */
-       padding: 50px;
-   }
-   button {
-       background-color: #333; /* 검은색 버튼 */
-       color: white;
-       padding: 10px 20px;
-       border: none;
-       cursor: pointer;
-   }
-   button:hover {
-       background-color: #555; /* 마우스를 올리면 살짝 밝아짐 */
-   }
-
-
-/* 각 그림 상자 안에서 이미지가 거대해지지 않도록 제한합니다 */
-.gallery-item {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    
-    /* [핵심] 상자 안의 내용물들을 가운데로 정렬하여 비율이 달라도 예쁘게 보이게 합니다 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+/* 언어 선택 버튼 예쁘게 꾸미기 */
+.lang-buttons {
+    text-align: right;
+    padding: 20px;
+}
+.lang-btn {
+    background: #f0f0f0;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.lang-btn.active {
+    background: #333;
+    color: white; /* 선택된 언어 버튼은 검은색으로 강조 */
 }
 
-/* 그림 이미지 자체의 크기 설정 */
-.gallery-item img {
-    /* 너비와 높이를 100%로 고정하는 대신, 자바스크립트가 지정해 줄 실제 비례 크기를 따르도록 만듭니다 */
-    max-width: 100%;  /* 상자 너비를 넘지 않도록 제한 */
-    max-height: 250px; /* 높이의 최대 한계선을 주어 너무 길어지지 않게 방지 */
-    object-fit: contain; /* [핵심] 이미지가 찌그러지거나 잘리지 않고 원래 비율을 유지합니다 */
-    border-radius: 4px;
-    margin-bottom: 15px;
+/* [핵심] 실제 미술관 벽면 원근감 효과 공간 설정 */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+    padding: 4px;
+    /* 원근감 강도 설정: 숫자가 작을수록 3D 왜곡이 강해집니다 */
+    perspective: 1000px; 
+}
+
+/* 3D 액자 틀 스타일 */
+.frame-3d {
+    background: #fff;
+    padding: 20px;
+    /* 입체적인 나무 액자 틀 테두리 느낌 내기 */
+    border: 12px solid #3a2212; 
+    box-shadow: 
+        inset 0 0 20px rgba(0,0,0,0.3), /* 액자 안쪽 음영 */
+        10px 15px 25px rgba(0,0,0,0.4); /* 벽면에 드리워지는 실제 같은 3D 그림자 */
+        
+    /* 박스가 3D 공간을 가질 수 있도록 선언 */
+    transform-style: preserve-3d;
+    /* 약간 비스듬하게 회전시켜 입체감을 돋보이게 만듦 */
+    transform: rotateY(5deg) rotateX(2deg);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* 마우스를 올렸을 때 정면으로 스르륵 다가오는 관람 효과 */
+.gallery-item:hover .frame-3d {
+    transform: rotateY(0deg) rotateX(0deg) translateZ(30px); /* 정면으로 오면서 관람객 앞으로 30px 튀어나옴 */
+    box-shadow: 15px 25px 35px rgba(0,0,0,0.5); /* 튀어나온 만큼 그림자가 더 멀리 퍼짐 */
+}
+
+.frame-3d img {
+    display: block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* 그림 자체의 미세한 음영 */
 }
