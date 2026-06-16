@@ -17,6 +17,24 @@
     color: white; /* 선택된 언어 버튼은 검은색으로 강조 */
 }
 
+/* 1. 개별 그림 카드 전체 상자 스타일 수정 */
+.gallery-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 10px 15px 25px rgba(0,0,0,0.2); /* 원래 있던 3D 그림자를 이쪽으로 가져옵니다 */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    /* [핵심 추가] 전체 상자가 3D 효과를 가질 수 있도록 기본 각도와 원근감을 부여합니다 */
+    transform-style: preserve-3d;
+    transform: rotateY(0deg) rotateX(0deg);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
 /* [핵심] 실제 미술관 벽면 원근감 효과 공간 설정 */
 .gallery-grid {
     display: grid;
@@ -42,18 +60,12 @@
     
     /* [핵심 추가] 액자가 내용물 크기로 줄어든 후, 전체 상자 안에서 가운데에 오도록 만듭니다 */
     margin: 0 auto 15px auto;
-
-    /* 박스가 3D 공간을 가질 수 있도록 선언 */
-    transform-style: preserve-3d;
-    /* 약간 비스듬하게 회전시켜 입체감을 돋보이게 만듦 */
-    transform: rotateY(5deg) rotateX(2deg);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 /* 마우스를 올렸을 때 정면으로 스르륵 다가오는 관람 효과 */
-.gallery-item:hover .frame-3d {
+.gallery-item:hover  {
     transform: rotateY(0deg) rotateX(0deg) translateZ(30px); /* 정면으로 오면서 관람객 앞으로 30px 튀어나옴 */
-    box-shadow: 15px 25px 35px rgba(0,0,0,0.5); /* 튀어나온 만큼 그림자가 더 멀리 퍼짐 */
+    box-shadow: 15px 25px 35px rgba(0,0,0,0.4); /* 튀어나온 만큼 그림자가 더 멀리 퍼짐 */
 }
 
 .frame-3d img {
